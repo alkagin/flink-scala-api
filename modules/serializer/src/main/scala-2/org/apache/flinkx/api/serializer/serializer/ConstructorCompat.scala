@@ -1,4 +1,4 @@
-package org.apache.flinkx.api.serializer
+package org.apache.flinkx.api.serializer.serializer
 
 import scala.annotation.nowarn
 import scala.reflect.runtime.{currentMirror => cm}

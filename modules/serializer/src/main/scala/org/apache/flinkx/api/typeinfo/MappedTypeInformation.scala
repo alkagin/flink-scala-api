@@ -1,10 +1,10 @@
 package org.apache.flinkx.api.typeinfo
 
-import org.apache.flinkx.api.serializer.MappedSerializer
 import org.apache.flinkx.api.serializer.MappedSerializer.TypeMapper
 import org.apache.flink.api.common.ExecutionConfig
 import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.api.common.typeutils.TypeSerializer
+import org.apache.flinkx.api.serializer.MappedSerializer
 
 import scala.reflect.{ClassTag, classTag}
 

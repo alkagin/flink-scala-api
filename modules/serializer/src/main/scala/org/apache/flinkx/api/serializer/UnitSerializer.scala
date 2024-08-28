@@ -1,6 +1,6 @@
 package org.apache.flinkx.api.serializer
 
-import org.apache.flinkx.api.serializer.UnitSerializer.UnitSerializerSnapshot
+import UnitSerializer.UnitSerializerSnapshot
 import org.apache.flink.api.common.typeutils.{SimpleTypeSerializerSnapshot, TypeSerializer, TypeSerializerSnapshot}
 import org.apache.flink.core.memory.{DataInputView, DataOutputView}
 

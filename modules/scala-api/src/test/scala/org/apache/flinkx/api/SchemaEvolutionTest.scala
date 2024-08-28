@@ -2,7 +2,6 @@ package org.apache.flinkx.api
 
 import org.apache.flinkx.api.SchemaEvolutionTest.{Click, ClickEvent, Event, NoArityTest}
 import org.apache.flinkx.api.serializers._
-import org.apache.flinkx.api.serializer.ScalaCaseClassSerializer
 import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.core.memory.{DataInputViewStreamWrapper, DataOutputViewStreamWrapper}
 import org.apache.flink.api.common.ExecutionConfig

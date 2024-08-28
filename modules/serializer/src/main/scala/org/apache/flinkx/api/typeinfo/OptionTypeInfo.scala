@@ -17,11 +17,11 @@
  */
 package org.apache.flinkx.api.typeinfo
 
-import org.apache.flinkx.api.serializer.{NothingSerializer, OptionSerializer}
 import org.apache.flink.annotation.{Public, PublicEvolving, VisibleForTesting}
 import org.apache.flink.api.common.ExecutionConfig
 import org.apache.flink.api.common.typeinfo.{AtomicType, TypeInformation}
 import org.apache.flink.api.common.typeutils.{TypeComparator, TypeSerializer}
+import org.apache.flinkx.api.serializer.{NothingSerializer, OptionSerializer}
 
 import scala.annotation.nowarn
 import scala.collection.JavaConverters._

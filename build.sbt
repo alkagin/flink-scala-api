@@ -7,25 +7,22 @@ lazy val rootScalaVersion = "3.3.3"
 lazy val flinkVersion     = System.getProperty("flinkVersion", "1.18.1")
 
 lazy val root = (project in file("."))
-  .aggregate(`scala-api`, `examples`)
+  .aggregate(`scala-api`, `examples`, `serializer`)
   .settings(
     publish / skip := true
   )
 
-lazy val `scala-api` = (project in file("modules/scala-api"))
+lazy val `serializer` = (project in file("modules/serializer"))
   .settings(ReleaseProcess.releaseSettings(flinkVersion) *)
   .settings(
-    name               := "flink-scala-api",
+    name               := "flink-serializer",
     scalaVersion       := rootScalaVersion,
     crossScalaVersions := Seq("2.12.19", "2.13.14", rootScalaVersion),
     libraryDependencies ++= Seq(
-      "org.apache.flink"  % "flink-streaming-java" % flinkVersion,
-      "org.apache.flink"  % "flink-java"           % flinkVersion,
-      "org.apache.flink"  % "flink-test-utils"     % flinkVersion % Test,
-      ("org.apache.flink" % "flink-streaming-java" % flinkVersion % Test).classifier("tests"),
-      "org.typelevel"    %% "cats-core"            % "2.12.0"     % Test,
-      "org.scalatest"    %% "scalatest"            % "3.2.19"     % Test,
-      "ch.qos.logback"    % "logback-classic"      % "1.5.7"      % Test
+      "org.apache.flink" % "flink-core" % flinkVersion,
+      "org.apache.flink" % "flink-test-utils" % flinkVersion % Test,
+      "org.scalatest" %% "scalatest" % "3.2.19" % Test,
+      "ch.qos.logback" % "logback-classic" % "1.5.7" % Test
     ),
     libraryDependencies ++= {
       if (scalaBinaryVersion.value.startsWith("2")) {
@@ -40,6 +37,26 @@ lazy val `scala-api` = (project in file("modules/scala-api"))
         )
       }
     },
+    organization           := "org.flinkextended",
+    description            := "Community-maintained fork"
+  )
+
+lazy val `scala-api` = (project in file("modules/scala-api"))
+  .settings(ReleaseProcess.releaseSettings(flinkVersion) *)
+  .dependsOn(`serializer`)
+  .settings(
+    name               := "flink-scala-api",
+    scalaVersion       := rootScalaVersion,
+    crossScalaVersions := Seq("2.12.19", "2.13.14", rootScalaVersion),
+    libraryDependencies ++= Seq(
+      "org.apache.flink"  % "flink-streaming-java" % flinkVersion,
+      "org.apache.flink"  % "flink-java"           % flinkVersion,
+      "org.apache.flink"  % "flink-test-utils"     % flinkVersion % Test,
+      ("org.apache.flink" % "flink-streaming-java" % flinkVersion % Test).classifier("tests"),
+      "org.typelevel"    %% "cats-core"            % "2.12.0"     % Test,
+      "org.scalatest"    %% "scalatest"            % "3.2.19"     % Test,
+      "ch.qos.logback"    % "logback-classic"      % "1.5.7"      % Test
+    ),
     // some IT tests won't work without running in forked JVM
     Test / fork := true,
     // Need to isolate macro usage to version-specific folders.

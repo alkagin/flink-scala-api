@@ -1,4 +1,4 @@
-package org.apache.flinkx.api
+package org.apache.flinkx.api.serializer
 
 import org.apache.flinkx.api.serializer.{CoproductSerializer, ScalaCaseClassSerializer, ScalaCaseObjectSerializer}
 import org.apache.flinkx.api.typeinfo.{CoproductTypeInformation, ProductTypeInformation}

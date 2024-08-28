@@ -1,6 +1,5 @@
 package org.apache.flinkx.api
 
-import org.apache.flinkx.api.serializer.ScalaCaseClassSerializer
 import org.apache.flink.api.common.typeutils.TypeSerializer
 import org.apache.flink.api.java.typeutils.runtime.kryo.KryoSerializer
 import org.apache.flink.core.memory.{DataInputViewStreamWrapper, DataOutputViewStreamWrapper}

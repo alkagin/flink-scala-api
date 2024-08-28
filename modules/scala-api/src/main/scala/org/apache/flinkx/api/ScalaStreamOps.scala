@@ -1,11 +1,11 @@
 package org.apache.flinkx.api
 
-import org.apache.flinkx.api.typeinfo.CaseClassTypeInfo
 import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flink.streaming.api.datastream.{DataStream => JavaStream}
 import org.apache.flink.streaming.api.datastream.{ConnectedStreams => ConnectedJavaStreams}
 import org.apache.flink.streaming.api.datastream.{BroadcastConnectedStream => BroadcastConnectedJavaStreams}
 import org.apache.flink.streaming.api.datastream.{KeyedStream => KeyedJavaStream}
+import org.apache.flinkx.api.typeinfo.CaseClassTypeInfo
 
 import language.implicitConversions
 import language.experimental.macros

@@ -182,7 +182,7 @@ and the class itself can be 1-to-1 mapped to a regular `String`. This library ha
 of non-serializable types to existing serializers. For example:
 
 ```scala mdoc
-import org.apache.flinkx.api.serializer.MappedSerializer.TypeMapper
+import org.apache.flinkx.api.MappedSerializer.TypeMapper
 import org.apache.flink.api.common.typeinfo.TypeInformation
 import org.apache.flinkx.api.serializers._
 
@@ -208,7 +208,7 @@ Warning: on Scala 3, the TypeMapper should not be made anonymous. This example w
 Scala 3 are private, and Flink cannot instantiate it on restore without JVM 17 incompatible reflection hacks:
 
 ```scala mdoc:reset-object
-import org.apache.flinkx.api.serializer.MappedSerializer.TypeMapper
+import org.apache.flinkx.api.MappedSerializer.TypeMapper
 
 class WrappedString {
   private var internal: String = ""
